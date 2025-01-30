@@ -23,6 +23,19 @@ ibjjf-results-scraper/
 │-- .gitignore             # Arquivos a serem ignorados pelo Git
 ```
 
+### 🛠 Criando a Estrutura do Projeto
+Para criar manualmente a estrutura do projeto, execute os seguintes comandos:
+
+```bash
+mkdir ibjjf-results-scraper
+cd ibjjf-results-scraper
+mkdir data src notebooks
+cd src
+touch scraper.py
+cd ..
+touch README.md requirements.txt .gitignore
+```
+
 ---
 
 ## 🚀 Como Usar
@@ -93,5 +106,4 @@ Contribuições são bem-vindas! Para contribuir:
 4. Envie um **pull request**.
 
 Vamos juntos melhorar esse projeto! 🚀
-
 
