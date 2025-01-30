@@ -1,9 +1,13 @@
 # IBJJF Results Scraper
 
+![IBJJF Logo](https://ibjjf.com/packs/media/images/ibjjf/logo-ibjjf-horizontal-WHITE-5052f98303bf969a21192eabba044849.svg)
+
 Este projeto é um scraper desenvolvido em **Python** para coletar os resultados dos campeonatos da **IBJJF** (International Brazilian Jiu-Jitsu Federation). Utiliza **web scraping** para extrair os dados diretamente do site da IBJJF e armazená-los em um arquivo estruturado.
 
-## 📖 Visão Geral
-Este projeto realiza scraping dos resultados dos campeonatos de Jiu-Jitsu organizados pela IBJJF. Os dados extraídos podem ser utilizados para análises estatísticas, rankings e históricos de desempenho.
+![GitHub Repo stars](https://img.shields.io/github/stars/veigakiko/ibjjf-results-scraper?style=social) ![Python](https://img.shields.io/badge/python-3.8%2B-blue) ![MIT License](https://img.shields.io/badge/license-MIT-green)
+
+## 🤔 Por que este projeto?
+O objetivo deste scraper é fornecer um banco de dados organizado com os resultados dos campeonatos da IBJJF, facilitando análises estatísticas, rankings de atletas e estudos sobre academias e tendências no Jiu-Jitsu competitivo.
 
 🔹 **Fonte:** [IBJJF Results](https://ibjjf.com/events/results)  
 🔹 **Formato dos Dados:** CSV estruturado  
@@ -14,6 +18,13 @@ Este projeto realiza scraping dos resultados dos campeonatos de Jiu-Jitsu organi
 - Paralelização para acelerar a coleta dos dados.
 - Processamento e estruturação das informações em um **DataFrame Pandas**.
 - Exportação dos resultados para análise posterior.
+
+---
+
+## 💻 Requisitos do Sistema
+- Python 3.8 ou superior
+- Docker (opcional)
+- Git
 
 ---
 
@@ -30,29 +41,32 @@ ibjjf-results-scraper/
 │-- README.md              # Documentação do projeto
 │-- requirements.txt       # Dependências do projeto
 │-- .gitignore             # Arquivos a serem ignorados pelo Git
-```
-
-### 🛠 Criando a Estrutura do Projeto
-Para criar manualmente a estrutura do projeto e gerar automaticamente o arquivo `requirements.txt`, execute os seguintes comandos:
-
-```bash
-mkdir ibjjf-results-scraper
-cd ibjjf-results-scraper
-mkdir data src notebooks logs assets
-cd src
-touch scraper.py
-cd ..
-touch README.md .gitignore
-
-echo "requests" >> requirements.txt
-echo "beautifulsoup4" >> requirements.txt
-echo "pandas" >> requirements.txt
-echo "tqdm" >> requirements.txt
+│-- configs/               # Arquivos de configuração do projeto
 ```
 
 ---
 
 ## 🚀 Como Usar
+
+### 🐳 Executando com Docker
+Se você preferir rodar o scraper em um ambiente isolado, utilize o Docker.
+
+1️⃣ **Construir a imagem Docker:**
+```bash
+docker build -t ibjjf-scraper .
+```
+
+2️⃣ **Executar o contêiner:**
+```bash
+docker run --rm -v $(pwd)/data:/app/data ibjjf-scraper
+```
+
+### 📌 Executando com Docker Compose
+```bash
+docker-compose up --build
+```
+
+Os resultados serão salvos na pasta `data/`. Se estiver usando Windows, substitua `$(pwd)` pelo caminho completo do diretório.
 
 ### 1️⃣ Clonar o Repositório
 ```bash
@@ -67,11 +81,6 @@ python -m venv venv
 **Ativar o ambiente:**
 - **Windows:** `venv\Scripts\activate`
 - **Mac/Linux:** `source venv/bin/activate`
-
-**Verificar se o ambiente está ativo:**
-```bash
-python --version
-```
 
 ### 3️⃣ Instalar Dependências
 ```bash
@@ -110,16 +119,6 @@ Durante a execução do scraper, logs são gerados automaticamente para facilita
 ```bash
 tail -f logs/scraper.log
 ```
-
----
-
-## 🛠️ Tecnologias Utilizadas
-- **Python**
-- **Requests** - Para realizar as requisições HTTP.
-- **BeautifulSoup** - Para fazer a extração dos dados da página HTML.
-- **Pandas** - Para estruturar e manipular os dados.
-- **TQDM** - Para exibir barras de progresso durante o scraping.
-- **ThreadPoolExecutor** - Para paralelizar a coleta de dados.
 
 ---
 
