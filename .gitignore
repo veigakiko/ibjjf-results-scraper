@@ -1,0 +1,15 @@
+# Ignorar arquivos de dados e logs
+data/
+*.csv
+*.log
+
+# Ignorar ambiente virtual do Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignorar arquivos de sistema
+.DS_Store
+Thumbs.db
