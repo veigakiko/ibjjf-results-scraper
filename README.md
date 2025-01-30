@@ -54,6 +54,48 @@ ibjjf-results-scraper/
 
 ## 🚀 Como Usar
 
+### 📤 Subindo para o GitHub
+
+Para subir o projeto para o GitHub, siga os passos abaixo:
+
+1️⃣ **Inicializar o repositório Git (se ainda não foi feito):**
+
+```bash
+git init
+```
+
+2️⃣ **Adicionar o repositório remoto:**
+
+```bash
+git remote add origin https://github.com/veigakiko/ibjjf-results-scraper.git
+```
+
+3️⃣ **Adicionar os arquivos ao repositório:**
+
+```bash
+git add .
+```
+
+4️⃣ **Fazer o commit das alterações:**
+
+```bash
+git commit -m "Initial commit: IBJJF Results Scraper project"
+```
+
+5️⃣ **Baixar possíveis alterações remotas antes do push:**
+
+```bash
+git pull origin main --rebase
+```
+
+6️⃣ **Enviar os arquivos para o GitHub:**
+
+```bash
+git push -u origin main
+```
+
+Se houver conflitos após o `git pull`, resolva-os antes de prosseguir.
+
 ### 🐳 Executando com Docker
 
 Se você preferir rodar o scraper em um ambiente isolado, utilize o Docker.
