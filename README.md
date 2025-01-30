@@ -1,7 +1,7 @@
 
 # IBJJF Results Scraper
 
-![IBJJF Logo](https://ibjjf.com/packs/media/images/ibjjf/logo-ibjjf-horizontal-WHITE-5052f98303bf969a21192eabba044849.svg)
+
 
 Este projeto é um scraper desenvolvido em **Python** para coletar os resultados dos campeonatos da **IBJJF** (International Brazilian Jiu-Jitsu Federation). Utiliza **web scraping** para extrair os dados diretamente do site da IBJJF e armazená-los em um arquivo estruturado.
 
