@@ -2,6 +2,13 @@
 
 Este projeto é um scraper desenvolvido em **Python** para coletar os resultados dos campeonatos da **IBJJF** (International Brazilian Jiu-Jitsu Federation). Utiliza **web scraping** para extrair os dados diretamente do site da IBJJF e armazená-los em um arquivo estruturado.
 
+## 📖 Visão Geral
+Este projeto realiza scraping dos resultados dos campeonatos de Jiu-Jitsu organizados pela IBJJF. Os dados extraídos podem ser utilizados para análises estatísticas, rankings e históricos de desempenho.
+
+🔹 **Fonte:** [IBJJF Results](https://ibjjf.com/events/results)  
+🔹 **Formato dos Dados:** CSV estruturado  
+🔹 **Finalidade:** Estudos sobre desempenho de atletas, análise de academias e estatísticas do esporte  
+
 ## 📌 Funcionalidades
 - Extração automática dos resultados de campeonatos da IBJJF.
 - Paralelização para acelerar a coleta dos dados.
@@ -18,22 +25,29 @@ ibjjf-results-scraper/
 │-- src/                   # Código-fonte do projeto
 │   │-- scraper.py         # Código principal de web scraping
 │-- notebooks/             # Notebooks para análise e testes
+│-- logs/                  # Armazena logs da execução
+│-- assets/                # Imagens ou recursos para documentação
 │-- README.md              # Documentação do projeto
 │-- requirements.txt       # Dependências do projeto
 │-- .gitignore             # Arquivos a serem ignorados pelo Git
 ```
 
 ### 🛠 Criando a Estrutura do Projeto
-Para criar manualmente a estrutura do projeto, execute os seguintes comandos:
+Para criar manualmente a estrutura do projeto e gerar automaticamente o arquivo `requirements.txt`, execute os seguintes comandos:
 
 ```bash
 mkdir ibjjf-results-scraper
 cd ibjjf-results-scraper
-mkdir data src notebooks
+mkdir data src notebooks logs assets
 cd src
 touch scraper.py
 cd ..
-touch README.md requirements.txt .gitignore
+touch README.md .gitignore
+
+echo "requests" >> requirements.txt
+echo "beautifulsoup4" >> requirements.txt
+echo "pandas" >> requirements.txt
+echo "tqdm" >> requirements.txt
 ```
 
 ---
@@ -42,17 +56,22 @@ touch README.md requirements.txt .gitignore
 
 ### 1️⃣ Clonar o Repositório
 ```bash
-git clone https://github.com/seu-usuario/ibjjf-results-scraper.git
+git clone https://github.com/veigakiko/ibjjf-results-scraper.git
 cd ibjjf-results-scraper
 ```
 
-### 2️⃣ Criar um Ambiente Virtual (Opcional)
+### 2️⃣ Criar e Ativar um Ambiente Virtual
 ```bash
 python -m venv venv
 ```
 **Ativar o ambiente:**
 - **Windows:** `venv\Scripts\activate`
 - **Mac/Linux:** `source venv/bin/activate`
+
+**Verificar se o ambiente está ativo:**
+```bash
+python --version
+```
 
 ### 3️⃣ Instalar Dependências
 ```bash
@@ -62,6 +81,13 @@ pip install -r requirements.txt
 ### 4️⃣ Executar o Scraper
 ```bash
 python src/scraper.py
+```
+
+### 5️⃣ Acessar os Dados Extraídos
+Os resultados coletados serão salvos automaticamente em:
+
+```plaintext
+C:\Users\Ricardo\Desktop\ibjjf-results-scraper\data\ibjjf_results.csv
 ```
 
 ---
@@ -76,6 +102,17 @@ O scraper gera um arquivo `.csv` com a seguinte estrutura:
 
 ---
 
+## 📝 Logs da Execução
+Durante a execução do scraper, logs são gerados automaticamente para facilitar o monitoramento de erros e progresso.
+
+- Os logs são salvos na pasta `logs/`.
+- Para visualizar os logs enquanto o scraper roda:
+```bash
+tail -f logs/scraper.log
+```
+
+---
+
 ## 🛠️ Tecnologias Utilizadas
 - **Python**
 - **Requests** - Para realizar as requisições HTTP.
@@ -86,10 +123,12 @@ O scraper gera um arquivo `.csv` com a seguinte estrutura:
 
 ---
 
-## 📌 Melhorias Futuras
-- Implementar **armazenamento em banco de dados**.
-- Criar **dashboard interativo** para visualizar os resultados.
-- Melhorar a **extração das categorias e pesos**.
+## 📌 Melhorias Futuras (To-Do List)
+- [ ] Implementar **armazenamento em banco de dados** (PostgreSQL ou MongoDB)
+- [ ] Criar **dashboard interativo** para visualizar os resultados dos atletas.
+- [ ] Melhorar a **extração das categorias e pesos** para evitar inconsistências.
+- [ ] Implementar um **modo de agendamento automático** para atualizar os dados periodicamente.
+- [ ] Adicionar suporte para exportação dos dados em **JSON e Excel**.
 
 ---
 
