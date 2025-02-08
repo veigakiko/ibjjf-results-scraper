@@ -4,7 +4,6 @@ import pandas as pd
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from tqdm import tqdm
 import time  # Para medir o tempo de execução
-import os  # Para manipulação de caminhos de arquivo
 
 # Função para gerar a lista de URLs automaticamente
 def get_result_urls(base_url="https://ibjjf.com/events/results"):
@@ -114,13 +113,6 @@ if __name__ == "__main__":
     if not df_ibjjf_scrap.empty:
         print("Exibindo os primeiros resultados:")
         print(df_ibjjf_scrap.head())
-
-        # Salvar o DataFrame em um arquivo CSV
-        output_dir = r"C:\Users\Ricardo\Desktop\ibjjf-results-scraper\data"
-        os.makedirs(output_dir, exist_ok=True)  # Criar o diretório se não existir
-        output_file = os.path.join(output_dir, "ibjjf_results.csv")
-        df_ibjjf_scrap.to_csv(output_file, index=False, encoding='utf-8-sig')
-        print(f"DataFrame salvo em {output_file}")
     else:
         print("Nenhum dado encontrado.")
 
